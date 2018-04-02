@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BeKey Test</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:700" rel="stylesheet">
+</head>
+
+<body>
+    <section class="first_and_last_section">
+        <header class="header visible-xs visible-sm">
+            <div class="flex-container">
+                <img src="images/logo.png" alt="logo" class="logo">
+                <nav class="header__nav">
+                    <ul>
+                        <li>
+                            <a href="#">О компании</a>
+                        </li>
+                        <li>
+                            <a href="#">Контакты</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <aside class="sidebar hidden-xs hidden-sm">
+            <img src="images/logo.png" alt="logo" class="logo">
+            <nav class="sidebar__nav">
+                <ul>
+                    <li><a href="#">О компании</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </nav>
+            <form class="form" action="">
+                <p class="form__title ">Задайте нам вопрос</p>
+                <input placeholder="Ваше имя " class=" form__item input" type="text" name="username">
+                <input placeholder="Контактный телефон " class=" form__item input" type="tel" name="tel">
+                <input placeholder="E-mail" class=" form__item input" type="email" name="email">
+                <textarea placeholder="Ваш вопрос" class=" form__item textarea" name="user_message" rows="4"></textarea>
+                <input class="form--submit" type="submit" value="Спросить">
+            </form>
+        </aside>
+        <article class="main">
+            <div class="main__container">
+                <h1 class="main__title">Мы будем полезны</h1>
+                <div class="row main__content">
+                    <div class="main__item col-md-4">
+                        <img src="images/face-1.jpg" alt="man's face">
+                        <h3 class="main__item__title">Lorem Ipsum</h3>
+                        <p class="main__item__content">Повседневная практика показывает, что новая модель организационной деятельности обеспечивает широкому кругу специалистов участие в формировании форм развития</p>
+                    </div>
+                    <div class="main__item col-md-4">
+                        <img src="images/face-2.jpg" alt="woman's face">
+                        <h3 class="main__item__title">Lorem Ipsum</h3>
+                        <p class="main__item__content">Разнообразный и богатый опыт, сложившаяся структура организации в значительной степени обуславливает создание позиций, занимаемый участниками в отношении поставленных задач. </p>
+                    </div>
+                    <div class="main__item col-md-4">
+                        <img src="images/face-3.jpg" alt="man's face">
+                        <h3 class="main__item__title">Lorem Ipsum</h3>
+                        <p class="main__item__content">Повседневная практика показывает, что сложившаяся структура организации позволяет оценить значение направлений прогрессивного развития</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <foooter class="footer visible-xs visible-sm">
+            <form class="form" action="">
+                <h3 class="form__title ">Задайте нам вопрос</h3>
+                <div class="flex-container">
+                    <div class="left">
+                        <input placeholder="Ваше имя " class=" form__item input" type="text" name="username">
+                        <input placeholder="Контактный телефон " class=" form__item input" type="tel" name="tel">
+                        <input placeholder="E-mail" class=" form__item input" type="email" name="email">
+                    </div>
+                    <div class="right">
+                        <textarea placeholder="Ваш вопрос" class=" form__item textarea" name="user_message"></textarea>
+                    </div>
+                </div>
+                <input class="form--submit" type="submit" value="Спросить">
+            </form>
+        </foooter>
+    </section>
+</body>
+
+</html>

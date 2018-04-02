@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test-2</title>
+</head>
+
+<body>
+    <div class="video-container">
+        <div class="icons">
+            <a href="#">
+        <img src="icon-1.png" alt="some icon" class="icon-1">
+      </a>
+            <a href="#">
+        <img src="icon-2.png" alt="some icon" class="icon-2">
+      </a>
+        </div>
+        <video class="video" controls src="http://crazysob.bekey.io/osemrecipe/videodemo/video/onion.mp4"></video>
+        <div class="popup-img">
+            <img class="arrow" src="arrow.png" alt="arrow">
+            <img src="giftbox.png" alt="giftbox" class="giftbox">
+        </div>
+    </div>
+    <style>
+    .video-container {
+        margin-top: 30px;
+        display: inline-block;
+        height: auto;
+        left: 50%;
+        position: relative;
+        transform: translateX(-50%);
+    }
+
+    .icons {
+        position: absolute;
+        display: block;
+        top: 15px;
+        right: 15px;
+        z-index: 3;
+    }
+
+    .icon-1,
+    .icon-2 {
+        width: 35px;
+        margin-bottom: 10px;
+        display: block;
+        transition: all 0.5s ease
+    }
+
+    .icon-2 {
+        border: 2px solid #fff;
+        border-radius: 50%;
+    }
+
+    .icon-1:hover,
+    .icon-2:hover {
+        transform: scale(1.2)
+    }
+
+    .video {
+        width: 720px;
+    }
+
+    .popup-img {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 50%;
+        display: none;
+    }
+
+    .giftbox {
+        border: 2px solid #fff;
+        border-radius: 50%;
+        width: 40px;
+        z-index: 3;
+        cursor: pointer;
+        transition: all 0.5s ease
+    }
+
+    .arrow {
+        width: 50px;
+        right: -6px;
+        top: 25px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .sidebar {
+        height: 91%;
+        width: 34%;
+        background-color: rgba(255, 255, 255, 0.7);
+        position: absolute;
+        left: 0;
+        z-index: 3;
+        box-shadow: 36px 7px 57px -17px #3f2189;
+    }
+
+    .sidebar .giftbox {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 30px;
+        border: none;
+        width: 45px;
+    }
+
+    .close {
+        position: absolute;
+        z-index: 3;
+        cursor: pointer;
+        font-size: 36px;
+        color: #999;
+        left: 20px;
+    }
+
+    .opacity {
+        width: 80%;
+        height: 68%;
+        opacity: 1;
+        background-color: #fff;
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%)
+    }
+
+    .opacityText {
+        color: #b01021;
+        position: absolute;
+        z-index: 3;
+        top: 25%;
+        left: 8%;
+        font-weight: 600;
+    }
+    </style>
+    <script>
+    let videoContainer = document.querySelector('.video-container');
+    let video = document.querySelector('.video');
+    let popupImg = document.querySelector('.popup-img');
+    let gift = document.querySelector('.giftbox');
+    let opacityText = document.createElement('p');
+    opacityText.classList.add('opacityText');
+    let newGift = gift.cloneNode();
+
+
+    function addSideBar() {
+        gift.style.transform = "rotateX(360deg)";
+        gift.removeEventListener('click', addSideBar);
+        video.pause();
+        if (!sidebar) {
+            var sidebar = document.createElement('div');
+            sidebar.classList.add("sidebar");
+            videoContainer.insertBefore(sidebar, video)
+
+            let close = document.createElement('div');
+            close.innerHTML = '&times;';
+            close.classList.add('close');
+
+            close.onclick = () => {
+                sidebar.style.display = "none"
+                gift.addEventListener('click', addSideBar);
+                video.play();
+            };
+
+            let opacity = document.createElement('div');
+            opacity.classList.add('opacity');
+            sidebar.appendChild(close);
+            sidebar.appendChild(newGift);
+            sidebar.appendChild(opacity);
+            let opacityStyle = window.getComputedStyle(opacity);
+            let sidebarStyle = window.getComputedStyle(sidebar);
+            let opacityOp = opacityStyle.opacity
+            let sidebarOp = parseFloat(sidebarStyle.backgroundColor.split(',')[3])
+            let differenceOpacity = (opacityOp - sidebarOp).toFixed(1)
+            opacityText.innerHTML = `CSS opacity ${differenceOpacity}`
+            opacity.appendChild(opacityText);
+        } else
+            sidebar.style.display = "block"
+    }
+
+
+    video.ontimeupdate = () => {
+        if (video.currentTime >= 24 && video.currentTime <= 27)
+            popupImg.style.display = "block";
+        else
+            popupImg.style.display = "none";
+    }
+    gift.addEventListener('click', addSideBar);
+    </script>
+</body>
+
+</html>
